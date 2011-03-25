@@ -30,23 +30,23 @@ Django Defaults Used
 ====================
 
 * ``django.contrib.auth.models.User`` is used to store Users, with the standard
-django Profile extension recommended for additional fields.
+  django Profile extension recommended for additional fields.
 * The database is used as the session store, but this could easily be 
-customized.
+  customized.
 
 PHP Defaults Used
 =================
 
 * ``django-php-bridge.backends.db`` uses PHP's native serialization format to
-store session data.
+  store session data.
 
 *******
 History
 *******
 
 This authentication backend was extracted from code used in production by 
-`PolicyStat`_ during their multi-year conversion from a PHP application to a 
-`Django`_ application. 
+a saas policy management start called `PolicyStat`_ during their multi-year 
+conversion from a PHP application to a `Django`_ application. 
 
 *****
 Usage
@@ -55,12 +55,12 @@ Usage
 This usage guide assumes a few things about your setup.
 
 1. You're using Django's ``django.contrib.auth.backends.ModelBackend`` as your 
-authentication backend and you want to use ``django.contrib.auth.models.User``
-for storing basic user information.
+  authentication backend and you want to use ``django.contrib.auth.models.User``
+  for storing basic user information.
 2. Your PHP and Django projects share a database. That's how the session
-coordination is accomplished.
+  coordination is accomplished.
 3. If you had a custom schema to store your user and profile information,
-you've already converted it to Django's schema.
+  you've already converted it to Django's schema.
 
 Usage: Django Side
 ==================
@@ -165,9 +165,9 @@ should handle logging in and logging out. It's generally simpler if either
 only Django or only PHP handles both logging in and logging out users and 
 probably simpler if that same side handles registration and account editing.
 
-In the case of `Apache2`_ running `mod_wsgi`_ for Django and `mod_php`_ for
-PHP, the separation can be accomplished inside a VirtualHost file. An example
-vhost file is provided at ``contrib/apache2/vhost_conf``.
+In the case of `Apache2`_ running `mod_wsgi`_ for Django and mod_php (or 
+similar) for PHP, the separation can be accomplished inside a VirtualHost file. 
+An example vhost file is provided at ``contrib/apache2/vhost_conf``.
 
 
 
@@ -175,9 +175,12 @@ vhost file is provided at ``contrib/apache2/vhost_conf``.
 .. vist the `online Django-PHP-Bridge documentation`_
 
 .. _`Django-PHP-Bridge`: http://github.com/winhamwr/django-php-bridge/
-.. _`Django`_: http://www.djangoproject.com/
+.. _`Policystat`: http://policystat.com
+.. _`Django`: http://www.djangoproject.com/
 .. _`CakePHP`: http://cakephp.org/
 .. _`Symfony`: http://www.symfony-project.org/
+.. _`Apache2`: http://httpd.apache.org/
+.. _`mod_wsgi`: http://www.modwsgi.org/
 .. _`sphinx`: http://sphinx.pocoo.org/
 .. _`online Django-PHP-Bridge documentation`: http://readthedocs.org/projects/django-php-bridge/
 
