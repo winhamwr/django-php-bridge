@@ -1,0 +1,32 @@
+# Example apache2 virtual host file for hosting a Django and a PHP project
+# side by side and integrating them using Django-PHP-Bridge
+# Wes Winham <winhamwr@gmail.com>
+# http://github.com/winhamwr/django-php-bridge
+
+# Assumes that static media is being handled by something like Nginx elsewhere
+# Assumes mod_php or similar is installed and configured
+
+# Variables that need python string template replacing:
+# domain_name
+# project_name
+# project_username
+# project_root_path
+# wsgi_file_path
+
+NameVirtualHost *:80
+
+<VirtualHost _default_:80>
+  ServerAdmin webmaster@%(domain_name)s
+  ServerName %(domain_name)s
+  DocumentRoot %(project_root_path)s
+
+  WSGIDaemonProcess %(project_name)s user=%(project_username)s processes=2 threads=10
+  WSGIProcessGroup %(project_name)s
+
+  WSGIScriptAlias / %(wsgi_file_path)s
+
+  # Configure all PHP-served URLs here
+  Alias /account/ %(project_root_path)s/account/
+  Alias /class/ %(project_root_path)s/class/
+
+</VirtualHost>
