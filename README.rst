@@ -7,7 +7,7 @@ Purpose
 *******
 
 `Django-PHP-Bridge`_ is a Django authentication backend that allows your Django
-application to seemlessly pass users to and from a PHP application. This allows
+project to seemlessly pass users to and from a PHP application. This allows
 you to build an application with both PHP and Django components while keeping a
 solid user experience.
 
@@ -20,11 +20,11 @@ General Approach
 ****************
 
 There are several different ways to approach this problem, mostly revolving
-around which side's default behavior you use and which side need more
-customization. In general, we've taken and this documentation assumes that 
+around which side's default behavior you use and which side needs more
+customization. In general, we've taken (and this documentation assumes) that 
 Django's default behavior should be used where possible. However, it is
-completely possible to use the provided session backend as part of a strategy
-to use less Django defaults.
+completely possible to use the provided session backend as part of a more
+PHP-centric approach.
 
 Django Defaults Used
 ====================
@@ -39,14 +39,6 @@ PHP Defaults Used
 
 * ``django-php-bridge.backends.db`` uses PHP's native serialization format to
   store session data.
-
-*******
-History
-*******
-
-This authentication backend was extracted from code used in production by 
-a saas policy management start called `PolicyStat`_ during their multi-year 
-conversion from a PHP application to a `Django`_ application. 
 
 *****
 Usage
@@ -169,6 +161,37 @@ In the case of `Apache2`_ running `mod_wsgi`_ for Django and mod_php (or
 similar) for PHP, the separation can be accomplished inside a VirtualHost file. 
 An example vhost file is provided at ``contrib/apache2/vhost_conf``.
 
+*******
+History
+*******
+
+This authentication backend was extracted from code used in production by 
+a saas policy management start called `PolicyStat`_ during their multi-year 
+conversion from a PHP application to a `Django`_ application. You can read
+a bit about their `PHP to Django Conversion`_.
+
+`PolicyStat`_ has sense converted to 100% Django and is no longer using this
+approach in production, but the hope is that someone who is will be interested
+in taking an active role in this project.
+
+************
+Contributing
+************
+
+All development on Django-PHP-Bridge happens at Github: http://github.com/winhamwr/django-php-bridge
+
+You are highly encourage to contribute to the improvement of Django-PHP-Bridge. 
+We would especially love contributions along the lines of how to integrate with
+specific PHP frameworks.
+
+***********
+Bug tracker
+***********
+
+If you have any suggestions, bug reports or questions please report them
+to our issue tracker at http://github.com/winhamwr/django-php-bridge/issues/
+
+Also feel free to tweet @weswinham on twitter.
 
 
 .. For full documenation, you can build the `sphinx`_ documentation yourself or
@@ -181,6 +204,7 @@ An example vhost file is provided at ``contrib/apache2/vhost_conf``.
 .. _`Symfony`: http://www.symfony-project.org/
 .. _`Apache2`: http://httpd.apache.org/
 .. _`mod_wsgi`: http://www.modwsgi.org/
+.. _`PHP to Django Conversion`: http://devblog.policystat.com/php-to-django-changing-the-engine-while-the-c
 .. _`sphinx`: http://sphinx.pocoo.org/
 .. _`online Django-PHP-Bridge documentation`: http://readthedocs.org/projects/django-php-bridge/
 
