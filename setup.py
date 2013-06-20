@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import codecs
-import os
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 import django_php_bridge
 long_description = codecs.open("README.rst", "r", "utf-8").read()
@@ -25,14 +24,10 @@ setup(
     author=django_php_bridge.__author__,
     author_email=django_php_bridge.__contact__,
     url=django_php_bridge.__homepage__,
-    version=version,
     long_description=long_description,
     packages=['django_php_bridge'],
-    author='Wes Winham',
-    author_email='winhamwr@gmail.com',
-    url='http://github.com/winhamwr/django-php-bridge/',
     license='BSD',
     platforms=['any'],
     classifiers=CLASSIFIERS,
-    install_requires=['phpserialize'],
+    install_requires=['phpserialize==1.3'],
 )
