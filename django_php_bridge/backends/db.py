@@ -1,5 +1,4 @@
-from PHPSerialize.PHPSerialize import PHPSerialize
-from PHPSerialize.PHPUnserialize import PHPUnserialize
+import phpserialize
 
 from django.contrib.sessions.backends.db import SessionStore as DbStore
 
@@ -15,11 +14,7 @@ class SessionStore(DbStore):
         super(SessionStore, self).__init__(session_key)
 
     def decode(self, session_data):
-        # uses special session decode method in PHPUnserialize
-        u = PHPUnserialize()
-        return u.session_decode(session_data)
+        return phpserialize.loads(session_data)
 
     def encode(self, session_dict):
-        # user special encode method in PHPSerialize
-        s = PHPSerialize()
-        return s.session_encode(session_dict)
+        return phpserialize.dumps(session_dict)
