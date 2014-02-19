@@ -1,0 +1,8 @@
+include AUTHORS
+include LICENSE
+include MANIFEST.in
+include README.rst
+include setup.py
+recursive-include django_php_bridge *.py
+recursive-include contrib *
+prune django_php_bridge/*.pyc
