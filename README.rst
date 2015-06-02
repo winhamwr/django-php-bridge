@@ -57,7 +57,7 @@ This usage guide assumes a few things about your setup.
 Usage: Django Side
 ==================
 
-On the django side of your project, installation is fairly simple.
+On the Django side of your project, installation is fairly simple.
 
 Install `Django-PHP-Bridge`_::
 
@@ -91,7 +91,7 @@ Create and Use a Compatible Session Table
 
 The session table you use needs to be compatible with the schema that Django
 expects. The exact SQL to create the table will vary, but the Django Docs on
-the `sql command`_ show us an easy way to obtain the SQL from your django
+the `sql command`_ show us an easy way to obtain the SQL from your Django
 project by running::
 
   $ django-admin.py sql sessions
@@ -149,7 +149,7 @@ This means changing your configuration so that for example, everything at
 If you're using different domains or subdomains to separate the side of your app,
 then you can ignore this step.
 
-Generally, to keep this part sane, you'll want to file good URL practices and
+Generally, to keep this part sane, you'll want to follow good URL practices and
 separate which side of your project handles particular tasks and domain objects.
 Django's application-centric ``urls.py`` configuration makes this easy.
 Particular attention should be paid with regards to which side of your project
@@ -166,11 +166,11 @@ History
 *******
 
 This authentication backend was extracted from code used in production by
-a saas policy management start called `PolicyStat`_ during their multi-year
+a saas policy management start-up called `PolicyStat`_ during their multi-year
 conversion from a PHP application to a `Django`_ application. You can read
 a bit about their `PHP to Django Conversion`_.
 
-`PolicyStat`_ has sense converted to 100% Django and is no longer using this
+`PolicyStat`_ has since converted to 100% Django and is no longer using this
 approach in production, but the hope is that someone who is will be interested
 in taking an active role in this project.
 
@@ -185,7 +185,7 @@ We would especially love contributions along the lines of how to integrate with
 specific PHP frameworks.
 
 ***********
-Bug tracker
+Bug Tracker
 ***********
 
 If you have any suggestions, bug reports or questions please report them
