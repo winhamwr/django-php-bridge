@@ -86,6 +86,26 @@ would be easier to write (and would be an appreciated contribution).
 
 In general, the steps involved are:
 
+Session serialization
+---------------------
+
+PHP's session serialization has an incompatible default value. Prior to version
+5.5.4 you can only store simple data without breaking functionalitiy of this library.
+This is due to the fact that it doesn't use the `serialize()` and `unserialize()`
+functions of PHP.
+
+If you store a multi-dimensional array in `$_SESSION` you will get an incompatible
+serialized array in the session data. This issue will pop up if you for example use Zend
+Framework 2's SessionManager.
+
+The PHP setting `session.serialize_handler`_ has the default set to 'php', which is
+an interal serializer. Since version 5.5.4 you are able to set it to 'php_serialize'.
+This option will set the serialization of the sessions to PHP's default `serialize()`
+and `unserialize()` functions and make it compatible when using multi-dimensional
+arrays.
+
+.. _`session.serialize_handler`: http://nl3.php.net/manual/en/session.configuration.php#ini.session.serialize-handler
+
 Create and Use a Compatible Session Table
 -----------------------------------------
 
